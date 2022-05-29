@@ -243,4 +243,5 @@ fabric.properties
 #tools like php-cs-fixer
 /app/tools
 /app/.php-cs-fixer.dist.php
+/app/.php-cs-fixer.cache
 

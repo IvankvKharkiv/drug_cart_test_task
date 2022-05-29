@@ -1,17 +1,17 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Command;
 
-use App\Service\Parsers\InternetStorePageParser;
 use App\Service\ParsedPageCsvFileSaver;
+use App\Service\Parsers\InternetStorePageParser;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
-use Symfony\Component\DomCrawler\Crawler;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 #[AsCommand(
@@ -52,11 +52,9 @@ class ParsePageCommand extends Command
             $io->error($e->getMessage());
         }
 
-
         if ($page_url) {
             $io->note(sprintf('You passed an url: %s', $page_url));
         }
-
 
         $io->success('Page Parsed successfuly. Result can be seen in var/result project folder.');
 
