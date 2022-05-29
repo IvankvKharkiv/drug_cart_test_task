@@ -50,6 +50,8 @@ class ParsePageCommand extends Command
             $this->csvFileSaver->saveCsvFileFromContentArray($this->pageParser->parseInternetStorePage($html, $page_url));
         } catch (\Exception $e) {
             $io->error($e->getMessage());
+
+            return Command::FAILURE;
         }
 
         if ($page_url) {

@@ -28,7 +28,7 @@ class InternetStorePageParser
             }
         }
 
-        throw new \Exception('No web parser were found for current interent store host.');
+        throw new \Exception('No web parser were found for current interent store host. Avaliable hosts: ' . implode(', ', $this->getAvailableHosts()));
     }
 
     public function getAvailableHosts()
