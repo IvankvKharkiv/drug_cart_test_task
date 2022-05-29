@@ -25,4 +25,7 @@ services:
 
     App\Service\Parsers\InternetStorePageParser:
         arguments:
-            - ['@App\Service\Parsers\RepkaWebParser', '@App\Service\Parsers\RozetkaWebParser']
+            - [
+                '@App\Service\Parsers\RepkaWebParser',
+                '@App\Service\Parsers\RozetkaWebParser'
+            ]
