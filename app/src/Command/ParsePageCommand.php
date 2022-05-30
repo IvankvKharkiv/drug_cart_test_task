@@ -42,11 +42,10 @@ class ParsePageCommand extends Command
     {
         $io = new SymfonyStyle($input, $output);
         $page_url = $input->getArgument('page_url');
-        $response = $this->client->request('GET', $page_url);
-
-        $html = $response->getContent();
-
+        
         try {
+            $response = $this->client->request('GET', $page_url);
+            $html = $response->getContent();
             $this->csvFileSaver->saveCsvFileFromContentArray($this->pageParser->parseInternetStorePage($html, $page_url));
         } catch (\Exception $e) {
             $io->error($e->getMessage());
